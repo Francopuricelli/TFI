@@ -1,0 +1,89 @@
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(160deg, #0d0d0d, #1a1a1a, #121212); /* fondo oscuro */
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+ion-card {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+  background: #1a1a1a;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.25);
+  padding: 10px;
+}
+
+ion-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  color: #e50914; /* rojo Netflix */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+ion-card-subtitle {
+  font-size: 14px;
+  text-align: center;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+ion-item {
+  --background: transparent;
+  --border-color: #333;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+ion-label {
+  color: #ccc;
+  font-size: 14px;
+}
+
+ion-input {
+  color: #fff;
+}
+
+ion-input::placeholder {
+  color: #666;
+}
+
+.login-button {
+  margin-top: 20px;
+  --background: #e50914;
+  --background-activated: #b20710;
+  --border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+}
+
+.login-button[disabled] {
+  --background: #444;
+  box-shadow: none;
+}
+
+.login-text {
+  font-size: 13px;
+  margin-left: 6px;
+  color: #e50914;
+}
+
+.register-button {
+  margin-top: 10px;
+  --background: transparent;
+  --border-color: #e50914;
+  --color: #e50914;
+  --border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+

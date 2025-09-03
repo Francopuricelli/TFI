@@ -1,0 +1,43 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar sesión</ion-card-title>
+      <ion-card-subtitle>Ingresa tus credenciales</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="email?.touched && email?.invalid">
+        <div>
+          <small *ngIf="email?.errors?.['required']">El email es obligatorio</small>
+          <small *ngIf="email?.errors?.['email']">Formato inválido</small>
+        </div>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password?.touched && password?.invalid">
+        <div>
+          <small *ngIf="password?.errors?.['required']">La contraseña es obligatoria</small>
+          <small *ngIf="password?.errors?.['minlength']">Mínimo 6 caracteres</small>
+        </div>
+      </ion-text>
+      <ion-button expand="block" fill="outline" type="button" class="register-button" (click)="goToRegister()">Registrarse</ion-button>
+      <ion-button expand="block" type="submit" class="login-button" [disabled]="loginForm.invalid" >Ingresar</ion-button>
+    </ion-card-content>
+
+    <!-- Botones de acceso rápido -->
+<div class="quick-access">
+  <ion-button expand="block" color="danger" (click)="quickLogin('admin')">Entrar como Admin</ion-button>
+  <ion-button expand="block" color="danger" (click)="quickLogin('tester')">Entrar como Tester</ion-button>
+  <ion-button expand="block" color="danger" (click)="quickLogin('invitado')">Entrar como Invitado</ion-button>
+</div>
+
+  </ion-card>
+</form>

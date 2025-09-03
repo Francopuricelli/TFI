@@ -1,0 +1,73 @@
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(160deg, #0d0d0d, #1a1a1a, #121212); /* degradado oscuro */
+  color: white;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nombre {
+  font-size: 28px;
+  font-weight: 600;
+  color: #e50914; /* rojo estilo Netflix */
+  margin-top: 50px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeInDown 1.2s ease-out;
+}
+
+.icon-container img {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgba(229, 9, 20, 0.5));
+  animation: pulse 2.5s infinite;
+}
+
+.division {
+  font-size: 20px;
+  font-weight: 500;
+  color: #e50914; /* mismo rojo que el nombre */
+  margin-bottom: 50px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  animation: fadeInUp 1.2s ease-out;
+  text-shadow: 0 0 8px rgba(229, 9, 20, 0.7); /* glow rojo */
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.6));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(229, 9, 20, 0.9));
+  }
+}

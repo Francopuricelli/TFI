@@ -1,0 +1,30 @@
+/* Estilo para el título */
+h1 {
+  color: #ff4d4d; /* Rojo brillante */
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 3rem; /* tamaño grande para destacar */
+}
+
+/* Estilo para el botón de Ionic más pequeño */
+ion-button {
+  --background: #000000; /* fondo negro sólido */
+  --color: #ff4d4d;       /* texto rojo */
+  --border-radius: 6px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  font-size: 14px;       /* botón más pequeño */
+  font-weight: 500;
+  border: 1px solid #ff4d4d; /* borde rojo sutil */
+  transition: 0.3s ease all;
+}
+
+ion-button:hover {
+  --background: #ff4d4d; /* fondo rojo al pasar el mouse */
+  --color: #000000;       /* texto negro */
+  cursor: pointer;
+}

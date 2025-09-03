@@ -1,0 +1,37 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registrarse</ion-card-title>
+      <ion-card-subtitle>Ingresa tus datos</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="email?.touched && email?.invalid">
+        <div>
+          <small *ngIf="email?.errors?.['required']">El email es obligatorio</small>
+          <small *ngIf="email?.errors?.['email']">Formato inválido</small>
+        </div>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Confirmar Contraseña</ion-label>
+        <ion-input type="password" formControlName="passwordConfirmation" placeholder="Confirma tu contraseña"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password?.touched && password?.invalid">
+        <div>
+          <small *ngIf="password?.errors?.['required']">La contraseña es obligatoria</small>
+          <small *ngIf="password?.errors?.['minlength']">Mínimo 6 caracteres</small>
+        </div>
+      </ion-text>
+      <ion-button expand="block" type="submit" class="register-button" [disabled]="registerForm.invalid" >Registrarse</ion-button>
+    </ion-card-content>
+  </ion-card>
+</form>
