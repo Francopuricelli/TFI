@@ -21,8 +21,8 @@ export class RegisterComponent  {
 
   registerForm = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(3)]],
-    passwordConfirmation: ['', [Validators.required, Validators.minLength(3)]]
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    passwordConfirmation: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   // getters para usar en la plantilla con safe navigation (p.ej. email?.touched)
@@ -38,7 +38,7 @@ export class RegisterComponent  {
     if (this.registerForm.valid) {
       if (this.registerForm.value.password !== this.registerForm.value.passwordConfirmation) {
         this.showModal('Las contraseñas no coinciden');
-      }
+      }else
       this.supabaseService.client.auth.signUp({
         email: this.registerForm.value.email!,
         password: this.registerForm.value.password!
