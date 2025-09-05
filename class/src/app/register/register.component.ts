@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { SupabaseService } from '../../app/supabase.service';
@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent  {
+  modalmessage = signal(false);   // controla apertura/cierre
+  modalText = signal(''); 
 
   constructor(private supabaseService: SupabaseService, private router: Router) {}
   private fb = inject(FormBuilder);
@@ -35,8 +37,7 @@ export class RegisterComponent  {
   onSubmit() {
     if (this.registerForm.valid) {
       if (this.registerForm.value.password !== this.registerForm.value.passwordConfirmation) {
-        alert('Las contraseñas no coinciden');
-        return;
+        this.showModal('Las contraseñas no coinciden');
       }
       this.supabaseService.client.auth.signUp({
         email: this.registerForm.value.email!,
@@ -44,7 +45,7 @@ export class RegisterComponent  {
       }).then(({data, error}) => {
         if (error) {
           console.error('Error signing up:', error);
-          alert('Error al registrarse');
+          this.showModal('No se pudo registrar el usuario');
           return;
         }
         this.router.navigate(['/home']);
@@ -55,6 +56,17 @@ export class RegisterComponent  {
     } else {
       this.registerForm.markAllAsTouched();
     }
+  }
+  showModal(message: string) {
+    this.modalText.set(message);
+    this.modalmessage.set(true);
+  }
+
+  closeModal() {
+    this.modalmessage.set(false);
+  }
+  goToLogin(): void {
+    this.router.navigate(['/login']);
   }
 }
 

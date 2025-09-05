@@ -28,10 +28,21 @@
       <ion-text color="danger" *ngIf="password?.touched && password?.invalid">
         <div>
           <small *ngIf="password?.errors?.['required']">La contraseña es obligatoria</small>
-          <small *ngIf="password?.errors?.['minlength']">Mínimo 6 caracteres</small>
+          <small *ngIf="password?.errors?.['minlength']">Mínimo 3 caracteres</small>
         </div>
       </ion-text>
       <ion-button expand="block" type="submit" class="register-button" [disabled]="registerForm.invalid" >Registrarse</ion-button>
+      <ion-button expand="block" fill="outline" type="button" class="login-button" (click)="goToLogin()">Iniciar sesión</ion-button>
     </ion-card-content>
   </ion-card>
 </form>
+
+
+  <div class="custom-modal-backdrop" *ngIf="modalmessage()">
+    <div class="custom-modal">
+      <h2 class="modal-title">Error</h2>
+      <p class="modal-text">{{ modalText() }}</p>
+      <ion-button expand="block" class="modal-button" (click)="closeModal()">OK</ion-button>
+    </div>
+  </div>
+

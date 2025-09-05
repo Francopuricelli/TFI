@@ -41,3 +41,11 @@
 
   </ion-card>
 </form>
+
+<div class="custom-modal-backdrop" *ngIf="modalmessage()">
+  <div class="custom-modal">
+    <h2>Error</h2>
+    <p>{{ modalText() }}</p>
+    <ion-button expand="block" (click)="closeModal()">OK</ion-button>
+  </div>
+</div>
